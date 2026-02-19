@@ -1,0 +1,70 @@
+baba1, [22-10-2025 10:11 PM]
+✅ ✅ Downloaded: Class_Schedule_:_Computer_Organization_and_ArchitectureBy_Sathish_59.pdf (1.2 Mbps) ✓ Size verified
+
+baba1, [22-10-2025 10:11 PM]
+✅ ✅ Download complete 4/4: Message 59 (12.0 Mbps)
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.05MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.07MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.08MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.09MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.03MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.00MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.00MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.02MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.06MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.06MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.10MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.04MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 🚀 Ultra-parallel download 3/4: Message 58
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.04MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.07MB
+
+baba1, [22-10-2025 10:11 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.03MB
+
+baba1, [22-10-2025 10:12 PM]
+📝 ⚠️ Size mismatch: Class Schedule : Verbal Aptitude (By Ashutosh Sir)_58.pdf - Expected: 0.12MB, Got: 0.02MB
+
+baba1, [22-10-2025 10:12 PM]
+📝 ⚠️ Size mismatch: Class Schedule : General Aptitude (By Amulya Sir)_56.pdf - Expected: 0.11MB, Got: 0.08MB
+
+baba1, [22-10-2025 10:12 PM]
+✅ ⚠️ 2 downloads had issues but proceeding
+✅ Ultra-speed downloads complete! 4 messages ready (Avg: 12.0 Mbps, Peak: 15.4 Mbps)
+
+baba1, [22-10-2025 10:12 PM]
+📝 📤 SEQUENTIAL QUEUE upload: 4 messages - STRICT ORDER MAINTAINED
+🚀 [1/4] Sequential upload starting: 'Message_56' (Message 56)
+
+baba1, [22-10-2025 10:12 PM]
+📝 ⚠️ No local file available for message 56, upload may fail on restricted channels

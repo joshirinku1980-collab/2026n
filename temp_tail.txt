@@ -1,0 +1,19 @@
+
+      await this.downloadChannel(client, channelId, messageOffsetId);
+    } catch (err) {
+      logger.error("ULTRA-SPEED processing error:");
+      console.error(err);
+      await this.ultraOptimizedWait(5000);
+    } finally {
+      if (client) {
+        try {
+          await client.disconnect();
+        } catch (disconnectErr) {
+          logger.warn("Disconnect error:", disconnectErr.message);
+        }
+      }
+      process.exit(0);
+    }
+  }
+}
+
