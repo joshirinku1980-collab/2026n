@@ -80,7 +80,7 @@ const currentBatchFiles = new Map(); // userId -> current batch files info
 
 // Rate limiting for Telegram API calls
 const messageQueue = new Map(); // userId -> array of pending messages
-const rateLimitDelay = 2000; // 2 seconds between messages
+const rateLimitDelay = 7000; // 2 seconds between messages
 const processingQueue = new Set(); // Track which users are being processed
 
 // Message spam prevention
