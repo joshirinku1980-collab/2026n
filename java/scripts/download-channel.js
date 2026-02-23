@@ -1346,6 +1346,7 @@ class DownloadChannel {
         logger.error(
           `❌ Sequential upload error for '${fileName}' (Message ${messageId}): ${error.message}`,
         );
+        logger.error(`FAILED UPLOAD: Message ${messageId} | ${fileName} | ${error.message}`);
 
         if (error.message.includes("FLOOD_WAIT")) {
           const waitTime = parseInt(error.message.match(/\d+/)?.[0] || "60");
@@ -1735,6 +1736,7 @@ class DownloadChannel {
         this.failedDownloads.forEach((failed, index) => {
           logger.error(`   ${index + 1}. Message ${failed.messageId} (Batch ${failed.batch}): ${failed.fileName}`);
           logger.error(`      Reason: ${failed.reason}`);
+          logger.error(`FAILED DOWNLOAD: Message ${failed.messageId} | ${failed.fileName} | ${failed.reason}`);
         });
         logger.error(`⚠️ ============================================\n`);
 
