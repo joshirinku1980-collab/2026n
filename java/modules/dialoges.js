@@ -85,7 +85,7 @@ const selectDialog = async (dialogs) => {
     dialogs.forEach((d, index) => {
         console.log(`${index + 1} - ${d.name}`);
     });
-    
+
     return await userDialogSelection(dialogs);
 };
 
@@ -132,12 +132,11 @@ const searchThroughDialogsWithSearchString = (dialogs, searchString) => {
 const getDialogName = async (client, channelId) => {
     try {
         const diaLogPath = path.resolve(process.cwd(), "./export/dialog_list.json");
-        if(!fs.existsSync(diaLogPath)) {
+        if (!fs.existsSync(diaLogPath)) {
             await getAllDialogs(client);
-            process.exit(0);
         }
 
-        const dialogs = require(diaLogPath);
+        const dialogs = JSON.parse(fs.readFileSync(diaLogPath, 'utf8'));
         const dialog = dialogs.find(d => d.id == channelId);
         return dialog ? dialog.name : null;
     } catch (error) {
