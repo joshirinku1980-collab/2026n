@@ -293,27 +293,27 @@ const uploadMessageToChannel = async (client, targetChannelId, message, mediaPat
       maxConcurrentUploads: isSingleFile ? Math.min(48, 48) : Math.min(24, 16), // Max concurrency for single file
       uploadTimeout: isSingleFile ? 600000 : 240000, // 10 minutes timeout for single large files
       progressCallback: (uploaded, total) => {
-          if (total > 0) {
-            const percent = ((uploaded / total) * 100).toFixed(1);
-            const elapsedSeconds = (Date.now() - uploadOptions.uploadStartTime) / 1000;
-            const speedBps = (uploaded * 8) / elapsedSeconds;
-            const speedMbps = (speedBps / 1000 / 1000).toFixed(1);
-            const mode = isSingleFile ? "[SINGLE-FILE BOOST]" : "🔄 SEQUENTIAL";
+        if (total > 0) {
+          const percent = ((uploaded / total) * 100).toFixed(1);
+          const elapsedSeconds = (Date.now() - uploadOptions.uploadStartTime) / 1000;
+          const speedBps = (uploaded * 8) / elapsedSeconds;
+          const speedMbps = (speedBps / 1000 / 1000).toFixed(1);
+          const mode = isSingleFile ? "[SINGLE-FILE BOOST]" : "🔄 SEQUENTIAL";
 
-            // Show sequential queue status
-            if (percent === "100.0") {
-              process.stdout.write(`\r${mode} Uploading: ${percent}% (${speedMbps} Mbps) - COMPLETING...`);
-            } else {
-              process.stdout.write(`\r${mode} Uploading: ${percent}% (${speedMbps} Mbps)`);
-            }
-          }
-          if (uploaded === total) {
-            const elapsedSeconds = (Date.now() - uploadOptions.uploadStartTime) / 1000;
-            const avgSpeedMbps = ((total * 8) / elapsedSeconds / 1000 / 1000).toFixed(1);
-            const mode = isSingleFile ? "🚀 SINGLE-FILE BOOST" : "✅ SEQUENTIAL";
-            process.stdout.write(`\n${mode} Upload complete - Avg: ${avgSpeedMbps} Mbps\n`);
+          // Show sequential queue status
+          if (percent === "100.0") {
+            process.stdout.write(`\r${mode} Uploading: ${percent}% (${speedMbps} Mbps) - COMPLETING...`);
+          } else {
+            process.stdout.write(`\r${mode} Uploading: ${percent}% (${speedMbps} Mbps)`);
           }
         }
+        if (uploaded === total) {
+          const elapsedSeconds = (Date.now() - uploadOptions.uploadStartTime) / 1000;
+          const avgSpeedMbps = ((total * 8) / elapsedSeconds / 1000 / 1000).toFixed(1);
+          const mode = isSingleFile ? "🚀 SINGLE-FILE BOOST" : "✅ SEQUENTIAL";
+          process.stdout.write(`\n${mode} Upload complete - Avg: ${avgSpeedMbps} Mbps\n`);
+        }
+      }
     };
 
     // Handle different types of content
@@ -379,8 +379,9 @@ const uploadMessageToChannel = async (client, targetChannelId, message, mediaPat
         }
 
       } else {
-        logger.warn(`⚠️ No local file available for message ${message.id}, upload may fail on restricted channels`);
-        return false;
+        const errMsg = `No local file available for message ${message.id}, upload may fail on restricted channels`;
+        logger.warn(`⚠️ ${errMsg}`);
+        throw new Error(errMsg);
       }
 
       // Handle special media types
@@ -411,8 +412,9 @@ const uploadMessageToChannel = async (client, targetChannelId, message, mediaPat
       uploadOptions.sticker = true;
     } else {
       if (!originalCaption.trim()) {
-        logger.warn(`Message ${message.id} has no content to upload`);
-        return false;
+        const errMsg = `Message ${message.id} has no content to upload`;
+        logger.warn(`⚠️ ${errMsg}`);
+        throw new Error(errMsg);
       }
     }
 
@@ -420,7 +422,7 @@ const uploadMessageToChannel = async (client, targetChannelId, message, mediaPat
     let result;
     if (uploadOptions.file && fs.existsSync(uploadOptions.file)) {
       const originalFileSize = fs.statSync(uploadOptions.file).size;
-      
+
       result = await client.sendFile(targetChannelId, {
         file: uploadOptions.file,
         caption: uploadOptions.message,
@@ -448,7 +450,7 @@ const uploadMessageToChannel = async (client, targetChannelId, message, mediaPat
         forceDocument: uploadOptions.forceVideo ? false : (originalFileSize > 50 * 1024 * 1024), // Don't force videos as documents
         thumb: false // Disable thumbnail generation to speed up upload
       });
-      
+
       // Verify upload completion
       if (result && originalFileSize > 0) {
         logger.info(`📤 Upload verified: ${path.basename(uploadOptions.file)} (${(originalFileSize / 1024 / 1024).toFixed(2)}MB)`);
