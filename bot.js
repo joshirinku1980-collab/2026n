@@ -492,24 +492,16 @@ function trackFileProgress(userId, output) {
     }
 
     // Track failed downloads from CLI output (FAILED DOWNLOADS REPORT)
-    if (output.includes('SKIPPING after') || output.includes('FAILED DOWNLOADS REPORT')) {
-        const failMatch = output.match(/SKIPPING.*?:\s*(.+)$/);
+    if (output.includes('FAILED DOWNLOAD:') || output.includes('FAILED UPLOAD:')) {
+        const failMatch = output.match(/FAILED (?:DOWNLOAD|UPLOAD):\s*Message\s+(\d+)\s*\|\s*(.+?)\s*\|\s*(.+)$/);
         if (failMatch) {
             stats.failedDownloads = stats.failedDownloads || [];
             stats.failedDownloads.push({
-                name: failMatch[1].trim(),
+                messageId: parseInt(failMatch[1]),
+                name: failMatch[2].trim() + ' (' + failMatch[3].trim() + ')',
                 timestamp: new Date().toLocaleTimeString()
             });
-        }
-        // Also try to parse structured fail report lines
-        const structuredFail = output.match(/Message\s+(\d+).*?:\s*(.+)$/);
-        if (structuredFail) {
-            stats.failedDownloads = stats.failedDownloads || [];
-            stats.failedDownloads.push({
-                messageId: parseInt(structuredFail[1]),
-                name: structuredFail[2].trim(),
-                timestamp: new Date().toLocaleTimeString()
-            });
+            console.log(`❌ Tracked failure: Msg ${failMatch[1]} - ${failMatch[2].trim()}`);
         }
     }
 
